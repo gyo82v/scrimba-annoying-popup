@@ -15,23 +15,17 @@ function App() {
   const [formData, setFormdata] = useState({name : "", email : ""})
   const [loadingSvg, setLoadingSvg] = useState(false)
   const [completed, setCompleted] = useState(false)
-  const [isReversed, setIsReversed] = useState(false)
 
   //tailwind styles
-  const container = `flex flex-col `
   const headerAndFooter = `bg-gradient-to-b from-neutral-200 to-neutral-100 
                            border-neutral-300 shadow-neutral-800/20 p-3`
-  const header = `border-b shadow-lg mb-10 `
-  const footer = `border-t shadow-top mt-10`
   const title = `text-2xl font-semibold text-neutral-700`
   const main = `p-3 flex flex-col gap-4 mx-auto flex-1`
   const copyright = `text-lg text-center italic font-light`
   const form = `flex flex-col gap-2 mt-20 w-10/12`
   const inputs = `bg-neutral-300 rounded-lg border-purple-600 p-2 mb-2`
-  const containerBtn = `mt-20 flex gap-5 `
-  const containerBtnReverse = `mt-20 flex gap-5 flex-row-reverse`
   const btn = `flex-1 px-4 py-2 rounded-lg bg-gradient-to-br from-neutral-700 to-neutral-600
-                 hover:transform hover:scale-105 active:scale-95 border border-purple-600`
+                hover:transform hover:scale-105 active:scale-95 border border-purple-600 text-center`
   //
 
   useEffect(() => {setTimeout(() => setPopupClose(false), 1500)}, [])
@@ -47,12 +41,9 @@ function App() {
     setTimeout(() => {setLoadingSvg(false), setCompleted(true)}, 3000)
   }
   
-  const handleOnMouseEnter = () =>  setIsReversed(true)
-  const handleOnMouseleave = () => setIsReversed(false)
-
   return (
-    <div className={container}>
-     <header className={`${header} ${headerAndFooter}`}>
+    <div className="flex flex-col">
+     <header className={`border-b shadow-lg mb-10 ${headerAndFooter}`}>
       <h1 className={title}>Free Wallpapers</h1>
      </header>
      <main className={main}>
@@ -62,7 +53,7 @@ function App() {
       <Category title="Landscapes wallpapers..." src={landscape} alt=" a lake, mountains in the background, cloudy sky"/>
       <Category title="Fantasy wallpapers..." src={fantasy} alt="floating island in the clouds"/>
      </main>
-     <footer className={`${footer} ${headerAndFooter}`}>
+     <footer className={`border-t shadow-top mt-10 ${headerAndFooter}`}>
       <p className={copyright}>FreeWallpapers@2025</p>
      </footer>
      <PopUp closePopup={closePopup} isClosed={popupClose} svg={loadingSvg} completed={completed}>
@@ -85,9 +76,9 @@ function App() {
             onChange={handleChange}
             required
           />
-          <div className={!isReversed ? containerBtn : containerBtnReverse}>
-            <button className={btn} role="submit">Accept</button>
-            <button className={btn} type="button" onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseleave}>Decline</button>
+          <div className="mt-20 flex gap-5">
+            <button className={btn} type="submit">Accept</button>
+            <button className={btn} type="button" onClick={handleSubmit} >Decline</button>
           </div>
         </form>
      </PopUp>
