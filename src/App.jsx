@@ -23,7 +23,7 @@ function App() {
   const main = `p-3 flex flex-col gap-4 mx-auto flex-1`
   const copyright = `text-lg text-center italic font-light`
   const form = `flex flex-col gap-2 mt-20 w-10/12`
-  const inputs = `bg-neutral-300 rounded-lg border-purple-600 p-2 mb-2`
+  const inputs = `bg-neutral-300 rounded-lg border-purple-600 p-2 mb-2 placeholder-purple-900`
   const btn = `flex-1 px-4 py-2 rounded-lg bg-gradient-to-br from-neutral-700 to-neutral-600
                 hover:transform hover:scale-105 active:scale-95 border border-purple-600 text-center`
   //

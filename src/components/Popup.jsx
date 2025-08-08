@@ -16,7 +16,7 @@ export default function PopUp({isClosed, closePopup, children, svg, completed}){
         !isClosed && (
         <div className={container}>
             <div className="flex p-3">
-               <button className={btnClose} onClick={closePopup} disabled={!completed}>
+               <button className={btnClose} onClick={closePopup} disabled={!completed} aria-label="close popup">
                   <AiOutlineClose className="h-6 w-6" />
                </button>
             </div>
